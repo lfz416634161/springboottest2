@@ -15,16 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserServiceImpl userService;
-
-    Logger logger= Logger.getLogger(UserController.class);
-
     @RequestMapping("register")
     @ResponseBody
     public String register(String username,String password){
-         //记录客户端的请求参数
-        logger.info("120.1.1.0输入地址"+"username:"+username+"password:"+password);
-        //把数据保存到test1数据库
         userService.register(username,password);
+        return "success";
+    }
+    @RequestMapping("login")
+    @ResponseBody
+    public String login(String username,String password){
         return "success";
     }
 }
