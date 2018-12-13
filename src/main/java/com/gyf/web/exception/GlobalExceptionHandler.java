@@ -10,6 +10,7 @@ import java.util.Map;
 /**
  * 用于捕获全局异常
  */
+/*
 @ControllerAdvice //控制器切面
 public class GlobalExceptionHandler {
 
@@ -18,7 +19,8 @@ public class GlobalExceptionHandler {
     public Map<String,Object> exceptionHandler(){//处理异常方法
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("errorCode", "101");
-        map.put("errorMsg", "系統错误!1111");
+        map.put("errorMsg", "系統错误!");
         return map;
     }
 }
+*/

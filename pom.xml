@@ -37,10 +37,11 @@
     </dependency>
 
 
-    <!-- Srping JDBC 依赖 -->
+    <!-- mybaties -->
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-jdbc</artifactId>
+      <groupId>org.mybatis.spring.boot</groupId>
+      <artifactId>mybatis-spring-boot-starter</artifactId>
+      <version>1.1.1</version>
     </dependency>
 
     <!-- 数据库驱动 -->
@@ -64,4 +65,14 @@
     </dependency>
   </dependencies>
 
+  <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+  </build>
 </project>

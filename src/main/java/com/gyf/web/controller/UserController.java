@@ -1,11 +1,9 @@
 package com.gyf.web.controller;
 
-import com.gyf.model.User;
-import com.gyf.service.IUserService;
+
+import com.gyf.test1.service.UserServiceImpl;
+import com.gyf.test2.service.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,30 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 //@EnableAutoConfiguration //自动配置，相当于写了spring的配置文件
 @RequestMapping("user")
 public class UserController {
-
-    @RequestMapping("{id}")
-    @ResponseBody
-    /**
-     * 通过id查询用户的信息
-     */
-    public User userInfo(@PathVariable() Integer id){
-        User user = new User("gyf","123");
-        user.setId(id);
-        int i = 10/0;
-        return user;
-    }
-
-    /*public static void main(String[] args) {
-        //启动springboot项目
-        SpringApplication.run(UserController.class,args);
-    }*/
-
     @Autowired
-    private IUserService userService;
+    private UserServiceImpl userService;
+    @Autowired
+    private CustomerServiceImpl customerService;
     @RequestMapping("register")
     @ResponseBody
     public String register(String username,String password){
+        //把数据保存到test1数据库
         userService.register(username,password);
+        //把数据保存到test2数据库
+        customerService.save(username,"123");
         return "success";
     }
 }
