@@ -63,6 +63,11 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!--jta 管理多个数据源的事务 用于 分布式多个，数据-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jta-atomikos</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

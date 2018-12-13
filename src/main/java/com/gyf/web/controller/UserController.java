@@ -21,8 +21,6 @@ public class UserController {
     public String register(String username,String password){
         //把数据保存到test1数据库
         userService.register(username,password);
-        //把数据保存到test2数据库
-        customerService.save(username,"123");
         return "success";
     }
 }
